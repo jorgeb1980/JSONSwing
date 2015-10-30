@@ -3,3 +3,7 @@
 .jar
 bin 
 release
+/target/
+/.classpath
+/.project
+/.settings/
