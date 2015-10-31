@@ -52,6 +52,30 @@ public class JSONJTreeNode extends DefaultMutableTreeNode {
 	final String value;
 	
 	/**
+	 * Returns the data type of the node.
+	 * @return Value in the enumerated series of possible data types.
+	 */
+	public DataType getDataType() {
+		return dataType;
+	}
+	
+	/**
+	 * In case of a property, it has a name.
+	 * @return Name of the property.
+	 */
+	public String getFieldName() {
+		return fieldName;
+	}
+	
+	/**
+	 * In case of a property, it has a value.
+	 * @return Value of the property.
+	 */
+	public String getValue() {
+		return value;
+	}
+	
+	/**
 	 * @param fieldName - name of field if applicable or null
 	 * @param index - index of element in the array or -1 if not part of an array
 	 * @param jsonElement - element to represent
