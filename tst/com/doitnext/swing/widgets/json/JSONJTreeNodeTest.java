@@ -51,11 +51,11 @@ public class JSONJTreeNodeTest {
 	 @Parameters
 	 public static Collection<Object[]> data() {
 	   Object[][] data = new Object[][] { 
-			   { "array-of-ints.txt", null },
-			   { "array-of-strings.txt", null }, 
-			   { "empty-array.txt", null }, 
-			   { "simple-object.txt", null },
-			   { "array-of-arrays.txt", null }};
+			   { "com/doitnext/swing/widgets/json/array-of-ints.txt", null },
+			   { "com/doitnext/swing/widgets/json/array-of-strings.txt", null }, 
+			   { "com/doitnext/swing/widgets/json/empty-array.txt", null }, 
+			   { "com/doitnext/swing/widgets/json/simple-object.txt", null },
+			   { "com/doitnext/swing/widgets/json/array-of-arrays.txt", null }};
 	   return Arrays.asList(data);
 	 }
 
@@ -64,7 +64,7 @@ public class JSONJTreeNodeTest {
 		 InputStream resource = null;
 		 StringWriter sw = null;
 		 try {
-			 resource = this.getClass().getResourceAsStream(fileName);
+			 resource = this.getClass().getClassLoader().getResourceAsStream(fileName);
 			 sw = new StringWriter();
 			 IOUtils.copy(resource, sw);
 			 String json = sw.toString();
