@@ -219,6 +219,20 @@ public class JSONEditPanel extends JPanel {
 	}
 	
 	/**
+	 * Returns the current JSON root from the JTree
+	 * 
+	 * @return the JSON as it is represented by the current state of the Tree model
+	 */
+	public String getRootJson() {
+		((DefaultTreeModel)jTree.getModel()).reload();
+		JSONJTreeNode node = (JSONJTreeNode) jTree.getModel().getRoot();
+		if(node != null)
+			return node.asJsonElement().toString();
+		else
+			return null;
+	}
+	
+	/**
 	 * Returns the current JSON from the JTree
 	 * 
 	 * @return the JSON as it is represented by the current state of the Tree model
@@ -227,8 +241,7 @@ public class JSONEditPanel extends JPanel {
 		TreePath selection = jTree.getSelectionPath();
 		JSONJTreeNode node = null;
 		if(selection == null) {
-			((DefaultTreeModel)jTree.getModel()).reload();
-			node = (JSONJTreeNode) jTree.getModel().getRoot();
+			return getRootJson();
 		} else {
 			((DefaultTreeModel)jTree.getModel()).reload(node);
 			node = (JSONJTreeNode) selection.getLastPathComponent();
